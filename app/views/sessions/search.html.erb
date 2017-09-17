@@ -1,0 +1,28 @@
+<h1>Search</h1>
+
+  <aside class="col-md-4">
+    <%= form_for(:session, url: search_path) do |f| %>
+
+      <%= f.radio_button :search, "title", checked: true%> Search by title </br>
+      <%= f.text_field :search_title%> </br>
+
+      <%= f.radio_button :search, "author"%> Search by author </br>
+      <%= f.text_field :search_author%> </br>
+
+      <%= f.radio_button :search, "publisher"%> Search by publisher </br>
+      <%= f.text_field :search_publisher%> </br>
+
+      
+      <%= f.submit "Search", class: "btn btn-primary" %>
+    <% end %>
+  </aside>
+  <div class="col-md-8">
+      <ul class="books">
+        <h3>Results</h3>
+        <%= render 'shared/search'%>
+      </ul>
+  </div>
+
+
+
+ 
