@@ -38,4 +38,8 @@ class BookTest < ActiveSupport::TestCase
 		assert_not @book.valid?
 	end
 
+	test "books sorted by newest" do
+		assert_equal books(:most_recent), Book.first
+	end
+
 end

@@ -1,0 +1,9 @@
+<li id="book-<%= book.id %>">
+  <span class="title"><%= book.title %></span>
+  <span class="publisher"><%= book.publisher %></span>
+  <span class="timestamp">
+    Publishd <%= time_ago_in_words(book.publish_date) %> ago.
+  </span>
+  <span class="show"><%= link_to 'Show', book%> </span>
+
+</li>
