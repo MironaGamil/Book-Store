@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :authors
   get '/search', to: 'sessions#search'
   post 'search', to: 'sessions#post_search'
 

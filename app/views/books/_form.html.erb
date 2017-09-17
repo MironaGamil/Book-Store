@@ -21,6 +21,26 @@
     <%= form.text_field :publisher, id: :book_publisher %>
   </div>
 
+  <%= submit_tag "Add Author", :type => 'button', :id => 'addAuthor', 
+          :onclick => 'addAuthorField()' %> 
+   
+ 
+  <div id="authorHeader" style="display:none">Author:  </div>
+   
+ 
+  <ul id="myList">
+  </ul>
+
+  <!-- Authors:
+  <ul>
+    <%= form.fields_for :authors do |authors_form| %>
+      <li>
+        <%= authors_form.label :author %>
+        <%= authors_form.text_field :name %>
+      </li>
+    <% end %>
+  </ul> -->
+
   <div class="field">
     <%= form.label :ISBN %>
     <%= form.text_field :ISBN, id: :book_ISBN %>

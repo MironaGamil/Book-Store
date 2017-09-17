@@ -15,6 +15,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    2.times { @book.authors.build }
   end
 
   # GET /books/1/edit
@@ -69,6 +70,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :publisher, :ISBN, :publish_date)
+      params.require(:book).permit(:title, :publisher, :ISBN, :publish_date, :addresses_attributes => [:id, :name])
     end
 end
