@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_admin, only: [:create, :destroy, :update, :new, :edit]
 
   # GET /books
   # GET /books.json
@@ -15,7 +16,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    2.times { @book.authors.build }
+    @book.authors.build
   end
 
   # GET /books/1/edit
@@ -70,6 +71,7 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:title, :publisher, :ISBN, :publish_date, :addresses_attributes => [:id, :name])
+      params.require(:book).permit(:title, :publisher, :ISBN, :publish_date, :authors_attributes => [:id, :name])
     end
+
 end

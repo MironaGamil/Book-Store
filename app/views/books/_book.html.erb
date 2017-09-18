@@ -5,5 +5,8 @@
     Publishd <%= time_ago_in_words(book.publish_date) %> ago.
   </span>
   <span class="show"><%= link_to 'Show', book%> </span>
+  <%if logged_in?%>
+  	<span class="destroy"><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+  <%end%>
 
 </li>

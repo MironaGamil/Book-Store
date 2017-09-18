@@ -4,7 +4,7 @@ class Book < ApplicationRecord
 	validates :publisher, presence: true, length: {maximum: 50}
 	validates :ISBN, presence: true
 	validates :publish_date, presence: true
-	has_many :authors
+	has_many :authors, dependent: :destroy
 	accepts_nested_attributes_for  :authors
 
 

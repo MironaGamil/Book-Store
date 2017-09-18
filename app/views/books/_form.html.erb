@@ -20,8 +20,8 @@
     <%= form.label :publisher %>
     <%= form.text_field :publisher, id: :book_publisher %>
   </div>
-
-  <%= submit_tag "Add Author", :type => 'button', :id => 'addAuthor', 
+  
+   <%= submit_tag "Add Author", :type => 'button', :id => 'addAuthor', 
           :onclick => 'addAuthorField()' %> 
    
  
@@ -29,7 +29,7 @@
    
  
   <ul id="myList">
-  </ul>
+  </ul> 
 
   <!-- Authors:
   <ul>
@@ -39,7 +39,7 @@
         <%= authors_form.text_field :name %>
       </li>
     <% end %>
-  </ul> -->
+  </ul>  -->
 
   <div class="field">
     <%= form.label :ISBN %>
