@@ -38,8 +38,17 @@ class BookTest < ActiveSupport::TestCase
 		assert_not @book.valid?
 	end
 
+	test "ISBN should be unique" do
+    	duplicate_book = @book.dup
+    	@book.save
+    	assert_not duplicate_book.valid?
+	end
+
+
 	test "books sorted by newest" do
 		assert_equal books(:most_recent), Book.first
 	end
+
+
 
 end

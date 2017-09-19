@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in_admin
       unless logged_in?
+      	flash[:danger]="log in as admin first!"
         redirect_to login_url
       end
     end

@@ -39,6 +39,7 @@ gem 'bootstrap-will_paginate', '~> 1.0'
 gem 'jquery-rails'
 gem 'config', '~> 1.4'
 gem 'figaro'
+gem 'rails-controller-testing'
 
 
 
