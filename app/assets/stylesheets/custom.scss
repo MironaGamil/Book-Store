@@ -2,23 +2,9 @@
 @import "bootstrap";
 $light-gray: #777;
 
-#logo {
-  float: left;
-  margin-left: 10px;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 13px;
-  font-weight: bold;
-}
 
-#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}
-
-body{
+/* universal */
+body {
   padding-top: 60px;
 }
 
@@ -37,27 +23,8 @@ textarea {
   }
 }
 
-.books {
-  list-style: none;
-  padding: 0;
-  li {
-    padding: 20px;
-    border-top: 1px solid #e8e8e8;
-    margin-left: 30px;
-  }
-  .title {
-    margin-top: 5em;
-    padding-top: 0;
-  }
-  .publisher {
-    display: block;
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-  }
-}
 
+/* typography */
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -82,3 +49,116 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+
+
+#logo {
+  float: left;
+  margin-left: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 13px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.books {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 20px;
+    border-top: 1px solid #e8e8e8;
+    margin-left: 30px;
+  }
+  .title {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .publisher {
+    display: block;
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+  }
+}
+
+
+
+

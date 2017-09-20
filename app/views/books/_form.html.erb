@@ -1,27 +1,13 @@
-<%= form_with(model: book, local: true) do |form| %>
-  <% if book.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+<%= form_for(@book) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-      <ul>
-      <% book.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :book_title %>
-  </div>
+  <%= f.label :publisher %>
+  <%= f.email_field :publisher, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :publisher %>
-    <%= form.text_field :publisher, id: :book_publisher %>
-  </div>
-  
-   <%= submit_tag "Add Author", :type => 'button', :id => 'addAuthor', 
+  <%= submit_tag "Add Author", :type => 'button', :id => 'addAuthor', 
           :onclick => 'addAuthorField()' %> 
    
  
@@ -29,29 +15,15 @@
    
  
   <ul id="myList">
-  </ul> 
+  </ul>
 
-  <!-- Authors:
-  <ul>
-    <%= form.fields_for :authors do |authors_form| %>
-      <li>
-        <%= authors_form.label :author %>
-        <%= authors_form.text_field :name %>
-      </li>
-    <% end %>
-  </ul>  -->
+  <%= f.label :ISBN %>
+  <%= f.text_field :ISBN, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :ISBN %>
-    <%= form.text_field :ISBN, id: :book_ISBN %>
-  </div>
+  <%= f.label :publish_date %>
+  <%= f.datetime_select :publish_date, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :publish_date %>
-    <%= form.datetime_select :publish_date, id: :book_publish_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
+
+
