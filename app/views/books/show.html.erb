@@ -19,6 +19,13 @@
   <strong>Publish date:</strong>
   <%= @book.publish_date %>
 </p>
+	<strong>Authors: </strong>
+	<% @authors=@book.authors.all%>
+	<% @authors.each do |author| %>
+    	<%= author.name %> </br>
+	<%end %>
+<p>
+</p>
 
 <%if logged_in?%>
 	<%= link_to 'Edit', edit_book_path(@book) %> |
