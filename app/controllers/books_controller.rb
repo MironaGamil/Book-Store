@@ -44,7 +44,7 @@ class BooksController < ApplicationController
   # PATCH/PUT /books/1.json
   def update
     respond_to do |format|
-      if @book.update(book_params)
+      if @book.update(book_params) 
         format.html { redirect_to @book}
         format.json { render :show, status: :ok, location: @book }
         flash[:success]="Book was successfully updated."
@@ -75,6 +75,10 @@ class BooksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
       params.require(:book).permit(:title, :publisher, :ISBN, :publish_date, :authors_attributes => [:id, :name])
+    end
+
+    def author_params
+      params.require(:book).permit(:id, :name)
     end
 
 end
